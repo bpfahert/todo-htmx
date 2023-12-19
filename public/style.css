@@ -1,0 +1,26 @@
+button {
+    border: 1px solid;
+}
+
+button:hover{
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+    outline-color: rgba(255, 255, 255, 0);
+    outline-offset: 15px;
+    text-shadow: 1px 1px 2px #427388; 
+}
+
+.task {
+    border: solid 1px black;
+}
+
+.taskcomplete {
+    text-decoration: line-through;
+    background: gray;
+    color: #fff;
+}
+
+#newtaskform,
+#edittaskform {
+    border: solid 1px black;
+}
+

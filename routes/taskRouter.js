@@ -5,6 +5,8 @@ const task_controller = require("../controllers/taskController");
 
 router.get('/', task_controller.index);
 
+router.get('/task/:id', task_controller.task_get);
+
 router.get('/create', task_controller.task_create_get);
 
 router.post('/create', task_controller.task_create_post);
