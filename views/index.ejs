@@ -16,9 +16,9 @@
                 <div class="card task mb-3" id=<%= tasks[i].id %> >
                     <h3 class="card-title"><%= tasks[i].name %></h3>
                     <p class="card-text"><%= tasks[i].description %></p>
-                    <button class="btn btn-info" id="taskstatusbtn<%= tasks[i].id %>" hx-post='/complete/<%= tasks[i].id %>' hx-target="#taskstatusbtn<%= tasks[i].id %>" hx-trigger='click' hx-swap="outerHTML"><%= tasks[i].completed === true ? "Completed" : "Mark as complete" %></button>
-                    <button class="btn btn-primary" hx-get='/edit/<%= tasks[i].id %>' hx-target="closest div">Edit Task</button>
-                    <button class="btn btn-danger" hx-delete='/delete/<%= tasks[i].id %>' hx-target="closest div" hx-swap="delete">Delete</button>
+                    <button class="btn btn-info btn-sm" id="taskstatusbtn<%= tasks[i].id %>" hx-post='/complete/<%= tasks[i].id %>' hx-target="#taskstatusbtn<%= tasks[i].id %>" hx-trigger='click' hx-swap="outerHTML"><%= tasks[i].completed === true ? "Completed" : "Mark as complete" %></button>
+                    <button class="btn btn-primary btn-sm" hx-get='/edit/<%= tasks[i].id %>' hx-target="closest div">Edit Task</button>
+                    <button class="btn btn-danger btn-sm" hx-delete='/delete/<%= tasks[i].id %>' hx-target="closest div" hx-swap="delete">Delete</button>
                 </div>
             <% } %>
         </div>

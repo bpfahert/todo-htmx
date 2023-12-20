@@ -12,12 +12,12 @@ exports.task_get = (req, res, next) => {
     const task = tasks[index];
     res.send(
         `
-        <div class="card task ${task.completed ? "taskcomplete" : ""} " hx-target="this" hx-swap="outerHTML" id=${task.id}>
+        <div class="card task mb-3 ${task.completed ? "taskcomplete" : ""} " hx-target="this" hx-swap="outerHTML" id=${task.id}>
             <h3 class="card-title">${task.name}</h3>
             <p class="card-text">${task.description}</p>
-            <button class="btn btn-info" id="taskstatusbtn${task.id}" hx-post='/complete/${task.id}' hx-target="closest div" hx-swap="outerHTML">${task.completed ? "Completed" : "Mark as complete"}</button>
-            <button class="btn btn-primary" hx-get='/edit/${task.id}' hx-target="closest div">Edit Task</button>
-            <button class="btn btn-danger" hx-delete='/delete/${task.id}' hx-target="closest div" hx-swap="delete">Delete</button>
+            <button class="btn btn-info btn-sm" id="taskstatusbtn${task.id}" hx-post='/complete/${task.id}' hx-target="closest div" hx-swap="outerHTML">${task.completed ? "Completed" : "Mark as complete"}</button>
+            <button class="btn btn-primary btn-sm" hx-get='/edit/${task.id}' hx-target="closest div">Edit Task</button>
+            <button class="btn btn-danger btn-sm" hx-delete='/delete/${task.id}' hx-target="closest div" hx-swap="delete">Delete</button>
         </div>
         `
     )
@@ -57,12 +57,12 @@ exports.task_create_post = (req, res, next) => {
     tasks.push(task);
     res.send(        
         `
-        <div class="card task ${task.completed ? "taskcomplete" : ""} " hx-target="this" hx-swap="outerHTML" id=${task.id}>
+        <div class="card task mb-3 ${task.completed ? "taskcomplete" : ""} " hx-target="this" hx-swap="outerHTML" id=${task.id}>
             <h3 class="card-title">${task.name}</h3>
             <p class="card-text">${task.description}</p>
-            <button class="btn btn-info" id="taskstatusbtn${task.id}" hx-post='/complete/${task.id}' hx-target="closest div" hx-swap="outerHTML">${task.completed ? "Completed" : "Mark as complete"}</button>
-            <button class="btn btn-primary" hx-get='/edit/${task.id}' hx-target="closest div">Edit Task</button>
-            <button class="btn btn-danger" hx-delete='/delete/${task.id}' hx-target="closest div" hx-swap="delete">Delete</button>
+            <button class="btn btn-info btn-sm" id="taskstatusbtn${task.id}" hx-post='/complete/${task.id}' hx-target="closest div" hx-swap="outerHTML">${task.completed ? "Completed" : "Mark as complete"}</button>
+            <button class="btn btn-primary btn-sm" hx-get='/edit/${task.id}' hx-target="closest div">Edit Task</button>
+            <button class="btn btn-danger btn-sm" hx-delete='/delete/${task.id}' hx-target="closest div" hx-swap="delete">Delete</button>
         </div>
         `
         );
@@ -109,12 +109,12 @@ exports.task_edit_put = (req, res, next) => {
     
     res.send(
         `
-        <div class="card task ${task.completed ? "taskcomplete" : ""} " hx-target="this" hx-swap="outerHTML" id=${task.id}>
+        <div class="card task mb-3 ${task.completed ? "taskcomplete" : ""} " hx-target="this" hx-swap="outerHTML" id=${task.id}>
             <h3 class="card-title">${task.name}</h3>
             <p class="card-text">${task.description}</p>
-            <button class="btn btn-info" id="taskstatusbtn${task.id}" hx-post='/complete/${task.id}' hx-target="closest div" hx-swap="outerHTML">${task.completed ? "Completed" : "Mark as complete"}</button>
-            <button class="btn btn-primary" hx-get='/edit/${task.id}' hx-target="closest div">Edit Task</button>
-            <button class="btn btn-danger" hx-delete='/delete/${task.id}' hx-target="closest div" hx-swap="delete">Delete</button>
+            <button class="btn btn-info btn-sm" id="taskstatusbtn${task.id}" hx-post='/complete/${task.id}' hx-target="closest div" hx-swap="outerHTML">${task.completed ? "Completed" : "Mark as complete"}</button>
+            <button class="btn btn-primary btn-sm" hx-get='/edit/${task.id}' hx-target="closest div">Edit Task</button>
+            <button class="btn btn-danger btn-sm" hx-delete='/delete/${task.id}' hx-target="closest div" hx-swap="delete">Delete</button>
         </div>
         `
         );
@@ -127,30 +127,18 @@ exports.task_delete = (req, res, next) => {
     res.send();
 }
 
-
-// exports.task_complete_post = (req, res, next) => {
-//     const taskID = req.params.id;
-//     const index = tasks.map(task => task.id).indexOf(taskID);    
-//     tasks[index].completed = !tasks[index].completed;
-//     res.send(
-//         `
-//         <button class="btn btn-info" id="taskstatusbtn${tasks[index].id}" hx-post='/complete/${tasks[index].id}' hx-target="#taskstatusbtn${tasks[index].id}" hx-swap="outerHTML">${tasks[index].completed ? "Completed" : "Mark as complete"}</button>
-//         `
-//     );
-// }
-
 exports.task_complete_post = (req, res, next) => {
     const taskID = req.params.id;
     const index = tasks.map(task => task.id).indexOf(taskID);    
     tasks[index].completed = !tasks[index].completed;
     res.send(
         `
-        <div class="card task ${tasks[index].completed ? "taskcomplete" : ""} " hx-target="this" hx-swap="outerHTML" id=${tasks[index].id}>
+        <div class="card task mb-3 ${tasks[index].completed ? "taskcomplete" : ""} " hx-target="this" hx-swap="outerHTML" id=${tasks[index].id}>
             <h3 class="card-title">${tasks[index].name}</h3>
             <p class="card-text">${tasks[index].description}</p>
-            <button class="btn btn-info" id="taskstatusbtn${tasks[index].id}" hx-post='/complete/${tasks[index].id}' hx-target="closest div" hx-swap="outerHTML">${tasks[index].completed ? "Completed" : "Mark as complete"}</button>
-            <button class="btn btn-primary" hx-get='/edit/${tasks[index].id}' hx-target="closest div">Edit Task</button>
-            <button class="btn btn-danger" hx-delete='/delete/${tasks[index].id}' hx-target="closest div" hx-swap="delete">Delete</button>
+            <button class="btn btn-info btn-sm" id="taskstatusbtn${tasks[index].id}" hx-post='/complete/${tasks[index].id}' hx-target="closest div" hx-swap="outerHTML">${tasks[index].completed ? "Completed" : "Mark as complete"}</button>
+            <button class="btn btn-primary btn-sm" hx-get='/edit/${tasks[index].id}' hx-target="closest div">Edit Task</button>
+            <button class="btn btn-danger btn-sm" hx-delete='/delete/${tasks[index].id}' hx-target="closest div" hx-swap="delete">Delete</button>
         </div>
         `
     );
